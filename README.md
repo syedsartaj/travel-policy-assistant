@@ -24,6 +24,12 @@ npm start -- "What is the hotel limit in London?"
 npm start                       # interactive, ask as many as you like
 ```
 
+Or in a browser:
+
+```bash
+npm run serve       # http://localhost:3000
+```
+
 Other things you can do:
 
 ```bash
@@ -32,6 +38,24 @@ npm start -- --diagnostics "meals in the UK"           # what loading the CSV de
 npm start -- --policy ./my-policy.csv "..."            # a different policy file
 npm start -- --help
 npm run build && node dist/cli.js "..."                # compiled
+```
+
+## The web page and API
+
+`npm run serve` starts a small `node:http` server — no framework, still zero
+runtime dependencies — with a one-page UI and a JSON API over the same
+assistant the CLI uses.
+
+| Route | What it does |
+| --- | --- |
+| `GET /` | the page |
+| `POST /api/ask` | `{"question": "..."}` → the full `Answer` |
+| `GET /api/ask?q=...` | the same, for `curl` |
+| `GET /api/policy` | the loaded rules and any load diagnostics |
+| `GET /health` | `{"ok": true, "rules": 11}` |
+
+```bash
+curl "http://localhost:3000/api/ask?q=Can+I+claim+a+taxi+in+India%3F"
 ```
 
 ## What it does with the questions
@@ -160,13 +184,15 @@ src/
   model/       the LanguageModel interface, offline and anthropic
   assistant.ts the pipeline
   cli.ts       one-shot and interactive
-tests/         108 tests
+  server.ts    the http surface
+public/        the one page the server serves
+tests/         116 tests
 ```
 
 ## Tests
 
 ```bash
-npm test          # 108 tests, ~1s
+npm test          # 116 tests, ~1s
 npm run typecheck # strict, with noUncheckedIndexedAccess
 ```
 

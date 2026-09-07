@@ -60,6 +60,11 @@ export class PolicyAssistant {
     return new PolicyAssistant(await readPolicyFile(config.policyFile), createModel(config));
   }
 
+  /** Which model writes the prose — "offline" unless one was configured. */
+  get provider(): string {
+    return this.model.id;
+  }
+
   async ask(question: string, signal?: AbortSignal): Promise<Answer> {
     const analysis: QuestionAnalysis = analyseQuestion(question, this.policy);
     const retrieval: Retrieval = retrieve(this.policy, analysis);

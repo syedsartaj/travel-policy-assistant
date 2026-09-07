@@ -4,7 +4,8 @@
 
 The optional brief: an assistant that answers a question by looking it up in
 `travel_expense_policy.csv`, and states clearly when the policy does not cover
-it. TypeScript on Node 20, zero runtime dependencies, 108 tests.
+it. TypeScript on Node 20, zero runtime dependencies, 116 tests. A CLI and a
+small web page, over the same library.
 
 ```bash
 npm install && npm test && npm start -- "Can I expense a $95 dinner in Dubai?"
@@ -62,10 +63,9 @@ reach for first:
 3. **More of the policy's own structure.** Per-trip and monthly caps, effective
    dates so a policy can change mid-year, currencies other than USD with a rate
    source, and approval thresholds ("over this, it needs a manager").
-4. **An HTTP surface and a batch mode.** The assistant is already a library with
-   a structured `Answer`; a thin server and a "score this expense report" batch
-   entry point are both small additions, and batch is the shape this is most
-   useful in.
+4. **A batch mode.** `npm run serve` covers the interactive case; the shape this
+   is most useful in is "score this whole expense report at once", which the
+   library already supports and nothing yet exposes.
 5. **Multi-turn follow-ups.** "And in London?" should keep the category from the
    previous question. Deliberately left out — it needs conversation state, and
    getting it wrong silently answers a question nobody asked.

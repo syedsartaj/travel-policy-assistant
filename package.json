@@ -10,6 +10,8 @@
   "scripts": {
     "start": "tsx src/cli.ts",
     "ask": "tsx src/cli.ts",
+    "serve": "tsx src/server.ts",
+    "serve:dist": "node dist/server.js",
     "build": "tsc -p tsconfig.build.json",
     "start:dist": "node dist/cli.js",
     "test": "vitest run",

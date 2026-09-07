@@ -1,0 +1,26 @@
+{
+  "name": "travel-policy-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An assistant that answers travel-expense questions from a policy CSV, and says plainly when the policy does not cover them.",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "start": "tsx src/cli.ts",
+    "ask": "tsx src/cli.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start:dist": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  }
+}

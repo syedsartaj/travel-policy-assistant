@@ -1,0 +1,14 @@
+category,region,daily_limit_usd,currency,notes
+Meals,United Kingdom,75,USD,Per day; includes tips
+Meals,United States,80,USD,Per day; includes tips
+Meals,United Arab Emirates,90,USD,Per day
+Meals,India,40,USD,Per day
+Hotel,United Kingdom,220,USD,Per night; standard room
+Hotel,United States,250,USD,Per night; standard room
+Hotel,United Arab Emirates,300,USD,Per night; standard room
+Hotel,India,120,USD,Per night
+Taxi,United Kingdom,,USD,Reimbursed at actuals; keep receipts
+Airfare,Global,,USD,Economy only for flights under 6 hours
+Airfare,Global,,USD,Business class permitted for flights over 6 hours
+Incidentals,Global,25,USD,Per day; no receipt required
+Meals,United Kingdom,75,USD,Per day (duplicate of row 1 for de-dup handling)
